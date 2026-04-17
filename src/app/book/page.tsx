@@ -11,6 +11,8 @@ const floorConfig = {
     id: "gastro",
     label: "The Gastro Bar",
     short: "Gastro Bar",
+    tagNo: "Mat & drikke",
+    tagEn: "Food & drinks",
     floorNo: "1. etasje",
     floorEn: "1st floor",
     ghostText: "GASTRO",
@@ -23,6 +25,8 @@ const floorConfig = {
     id: "lounge",
     label: "The Cocktail Lounge",
     short: "Lounge",
+    tagNo: "Cocktails",
+    tagEn: "Cocktails",
     floorNo: "2. etasje",
     floorEn: "2nd floor",
     ghostText: "LOUNGE",
@@ -35,6 +39,8 @@ const floorConfig = {
     id: "underground",
     label: "The Underground",
     short: "Underground",
+    tagNo: "Fest & events",
+    tagEn: "Party & events",
     floorNo: "Kjelleren",
     floorEn: "Basement",
     ghostText: "UNDER\nGROUND",
@@ -220,13 +226,16 @@ function BookingForm() {
               const active = selectedFloor === fId;
               return (
                 <button key={fId} type="button" onClick={() => setSelectedFloor(fId)}
-                  className="flex-1 py-3 text-center font-cormorant text-[0.8rem] sm:text-sm tracking-[0.12em] uppercase transition-all duration-500"
+                  className="flex-1 py-3 text-center font-cormorant tracking-[0.12em] uppercase transition-all duration-500"
                   style={{
                     color: active ? f.accent : "rgba(255,255,255,0.22)",
                     borderBottom: `2px solid ${active ? f.accent : "rgba(255,255,255,0.05)"}`,
                     transition: "all 0.5s ease",
                   }}>
-                  {f.short}
+                  <span className="text-[0.8rem] sm:text-sm block">{f.short}</span>
+                  <span className="text-[0.55rem] sm:text-[0.65rem] tracking-[0.15em] block mt-0.5" style={{ opacity: active ? 0.6 : 0.35 }}>
+                    {lang === "no" ? f.tagNo : f.tagEn}
+                  </span>
                 </button>
               );
             })}

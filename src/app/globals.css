@@ -1,26 +1,173 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand: #c8a44e;
+  --gastro-warm: #2a1a0a;
+  --lounge-deep: #0c0a14;
+  --underground-void: #050505;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
 }
+
+/* ── Snap sections ── */
+.snap-section {
+  scroll-snap-align: start;
+  height: 100dvh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Fullscreen background image ── */
+.bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Cinematic overlays per section ── */
+
+.overlay-hero {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.overlay-gastro {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(42,26,10,0.6) 0%, transparent 35%),
+    linear-gradient(to bottom, transparent 45%, rgba(42,26,10,0.95) 100%),
+    radial-gradient(ellipse at 50% 40%, transparent 30%, rgba(42,26,10,0.5) 100%);
+}
+
+.overlay-lounge {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(12,10,20,0.65) 0%, transparent 30%),
+    linear-gradient(to bottom, transparent 45%, rgba(12,10,20,0.95) 100%),
+    radial-gradient(ellipse at 50% 40%, transparent 25%, rgba(12,10,20,0.55) 100%);
+}
+
+.overlay-underground {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(5,5,5,0.7) 0%, transparent 25%),
+    linear-gradient(to bottom, transparent 35%, rgba(5,5,5,0.98) 100%),
+    radial-gradient(ellipse at 50% 35%, transparent 15%, rgba(5,5,5,0.8) 100%);
+}
+
+/* ── Content layer ── */
+.section-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .section-inner { padding: 4rem 3rem; }
+}
+
+/* ── Fonts ── */
+.font-instrument { font-family: 'Instrument Serif', serif; }
+.font-lora { font-family: 'Lora', serif; }
+.font-cormorant { font-family: 'Cormorant', serif; }
+.font-bebas { font-family: 'Bebas Neue', sans-serif; }
+
+/* ── Grain ── */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+
+/* ── Bounce arrow ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.float { animation: float 2.5s ease-in-out infinite; }
+
+/* ── CTA buttons ── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border: 1px solid;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  text-decoration: none;
+  font-family: 'Cormorant', serif;
+}
+.cta:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── Lang toggle ── */
+.lang-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+  display: flex;
+  gap: 0.15rem;
+}
+.lang-toggle button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  font-family: 'Cormorant', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  transition: color 0.3s;
+}
+.lang-toggle button.active { color: rgba(255,255,255,0.85); }
+
+/* ── Floor number — big decorative numeral ── */
+.floor-number {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.75rem;
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(6rem, 18vw, 14rem);
+  line-height: 0.85;
+  color: rgba(255,255,255,0.04);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 0; }

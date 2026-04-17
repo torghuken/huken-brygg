@@ -222,6 +222,16 @@ body {
   .bk-inp { font-size: 16px; }
 }
 
+/* Kill autofill yellow background */
+.bk-inp:-webkit-autofill,
+.bk-inp:-webkit-autofill:hover,
+.bk-inp:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(255,255,255,0.9);
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 9999s ease-in-out 0s;
+  background-color: transparent !important;
+}
+
 input[type="date"].bk-inp,
 input[type="time"].bk-inp {
   -webkit-appearance: none;

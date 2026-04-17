@@ -186,22 +186,22 @@ function BookingForm() {
         <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button>
       </div>
 
-      {/* Main layout — uses flexbox to distribute space evenly */}
-      <div className="relative z-10 flex flex-col justify-between h-full mx-auto max-w-lg px-7 sm:px-10 py-[env(safe-area-inset-top,0.75rem)] pb-[env(safe-area-inset-bottom,1rem)]">
+      {/* Main layout */}
+      <div className="relative z-10 flex flex-col justify-center h-full mx-auto max-w-lg px-7 sm:px-10 gap-6 sm:gap-8">
 
-        {/* Top: back link */}
-        <div className="pt-3">
+        {/* Back link — absolute top */}
+        <div className="absolute top-4 left-7 sm:left-10">
           <Link href="/" className="inline-flex items-center gap-2 font-cormorant text-xs tracking-[0.25em] uppercase text-white/25 transition hover:text-white/50">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1"><path d="M8 3L4 7L8 11" /></svg>
             {t.back}
           </Link>
         </div>
 
-        {/* Center: title */}
+        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center -mt-4"
+          className="text-center"
         >
           <h1 className="font-instrument text-[3.5rem] sm:text-7xl tracking-wide text-white leading-none">
             {t.title}
@@ -211,7 +211,7 @@ function BookingForm() {
         </motion.div>
 
         {/* Form */}
-        <motion.form onSubmit={handleSubmit} className="flex flex-col gap-[1.1rem] sm:gap-5 -mt-2" initial="hidden" animate="show">
+        <motion.form onSubmit={handleSubmit} className="flex flex-col gap-[1.1rem] sm:gap-5" initial="hidden" animate="show">
 
           {/* Floor selector — 3 pill-like tabs */}
           <motion.div custom={0} variants={fade} className="flex gap-2">
@@ -307,8 +307,6 @@ function BookingForm() {
           </motion.div>
         </motion.form>
 
-        {/* Safe area bottom spacer */}
-        <div className="h-1 shrink-0" />
       </div>
     </div>
   );

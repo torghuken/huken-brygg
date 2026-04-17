@@ -169,5 +169,46 @@ body {
   user-select: none;
 }
 
+/* ── Booking page inputs ── */
+.book-label {
+  display: block;
+  font-family: 'Cormorant', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  transition: color 0.6s ease;
+}
+
+.book-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid;
+  padding: 0.75rem 0;
+  font-family: 'Cormorant', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  outline: none;
+  transition: border-color 0.4s ease;
+  letter-spacing: 0.03em;
+}
+
+.book-input:focus {
+  border-color: rgba(255,255,255,0.35) !important;
+}
+
+.book-input::placeholder {
+  color: rgba(255,255,255,0.15);
+  font-style: italic;
+}
+
+/* Fix date/time input styling on mobile */
+.book-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 0; }

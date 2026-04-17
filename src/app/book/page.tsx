@@ -230,7 +230,7 @@ function BookingForm() {
 
   /* ── Booking form ── */
   return (
-    <div className="relative min-h-screen overflow-hidden" style={{ background: floor.bg, transition: "background 0.8s ease" }}>
+    <div className="relative min-h-[100dvh] overflow-x-hidden" style={{ background: floor.bg, transition: "background 0.8s ease" }}>
       {/* Ambient glow — shifts with floor */}
       <div
         className="absolute inset-0 pointer-events-none transition-all duration-1000"
@@ -268,12 +268,12 @@ function BookingForm() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-lg px-6 pb-20 pt-8 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-lg px-5 pb-16 pt-6 sm:px-8 sm:pb-20 sm:pt-8">
 
         {/* Back */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 font-cormorant text-[0.65rem] tracking-[0.4em] uppercase text-white/25 transition hover:text-white/50 mb-16 sm:mb-20"
+          className="inline-flex items-center gap-2 font-cormorant text-[0.65rem] tracking-[0.4em] uppercase text-white/25 transition hover:text-white/50 mb-10 sm:mb-20"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1">
             <path d="M8 3L4 7L8 11" />
@@ -282,7 +282,7 @@ function BookingForm() {
         </Link>
 
         {/* Title */}
-        <motion.div initial="hidden" animate="show" className="mb-14">
+        <motion.div initial="hidden" animate="show" className="mb-8 sm:mb-14">
           <motion.h1
             custom={0}
             variants={rise}
@@ -300,7 +300,7 @@ function BookingForm() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-10"
+          className="flex flex-col gap-7 sm:gap-10"
           initial="hidden"
           animate="show"
         >
@@ -310,7 +310,7 @@ function BookingForm() {
             <label className="book-label" style={{ color: `rgba(${floor.accentRgb}, 0.5)` }}>
               {t.floor}
             </label>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex gap-1.5 sm:gap-2">
               {(Object.keys(floorConfig) as FloorId[]).map((fId) => {
                 const f = floorConfig[fId];
                 const active = selectedFloor === fId;
@@ -319,7 +319,7 @@ function BookingForm() {
                     key={fId}
                     type="button"
                     onClick={() => setSelectedFloor(fId)}
-                    className="relative flex-1 py-4 text-center font-cormorant text-[0.65rem] tracking-[0.25em] uppercase transition-all duration-500"
+                    className="relative flex-1 min-h-[3.5rem] py-3 sm:py-4 text-center font-cormorant text-[0.6rem] sm:text-[0.65rem] tracking-[0.2em] sm:tracking-[0.25em] uppercase transition-all duration-500"
                     style={{
                       color: active ? f.accent : "rgba(255,255,255,0.25)",
                       borderBottom: `1px solid ${active ? `rgba(${f.accentRgb}, 0.6)` : "rgba(255,255,255,0.08)"}`,
@@ -328,7 +328,7 @@ function BookingForm() {
                   >
                     {lang === "no" ? f.floorNo : f.floorEn}
                     <br />
-                    <span className="text-[0.55rem] tracking-[0.15em] mt-0.5 block" style={{ opacity: active ? 0.7 : 0.4 }}>
+                    <span className="text-[0.5rem] sm:text-[0.55rem] tracking-[0.1em] sm:tracking-[0.15em] mt-0.5 block" style={{ opacity: active ? 0.7 : 0.4 }}>
                       {f.label}
                     </span>
                   </button>
@@ -411,6 +411,7 @@ function BookingForm() {
             </label>
             <input
               type="text"
+              autoComplete="name"
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -426,6 +427,8 @@ function BookingForm() {
             </label>
             <input
               type="tel"
+              inputMode="tel"
+              autoComplete="tel"
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -442,6 +445,8 @@ function BookingForm() {
             </label>
             <input
               type="email"
+              inputMode="email"
+              autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="book-input"

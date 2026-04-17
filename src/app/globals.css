@@ -208,6 +208,21 @@ body {
 .book-input::-webkit-calendar-picker-indicator {
   filter: invert(0.5);
   cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* iOS: prevent zoom on input focus (font-size >= 16px) */
+@media (max-width: 640px) {
+  .book-input {
+    font-size: 1rem;
+  }
+}
+
+/* iOS: fix date/time input appearance */
+input[type="date"].book-input,
+input[type="time"].book-input {
+  -webkit-appearance: none;
+  min-height: 2.75rem;
 }
 
 /* ── Scrollbar ── */

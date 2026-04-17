@@ -62,6 +62,16 @@ function BookingForm() {
   const [selectedFloor, setSelectedFloor] = useState("gastro");
   const [guestCount, setGuestCount] = useState(2);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    date: "",
+    time: "",
+    name: "",
+    phone: "",
+    email: "",
+    notes: "",
+  });
   const t = texts[lang];
 
   useEffect(() => {
@@ -73,10 +83,39 @@ function BookingForm() {
 
   const currentFloor = floors.find((f) => f.id === selectedFloor)!;
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: connect to Supabase + Twilio
-    setSubmitted(true);
+    if (submitting) return;
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          floor: selectedFloor,
+          date: formData.date,
+          time: formData.time,
+          guests: guestCount,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          notes: formData.notes,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Noe gikk galt");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Noe gikk galt");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -182,6 +221,8 @@ function BookingForm() {
               <input
                 type="date"
                 required
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                 className="w-full rounded-sm border border-white/10 bg-transparent px-4 py-3 font-cormorant text-sm text-white outline-none transition focus:border-white/30"
               />
             </div>
@@ -192,6 +233,8 @@ function BookingForm() {
               <input
                 type="time"
                 required
+                value={formData.time}
+                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                 className="w-full rounded-sm border border-white/10 bg-transparent px-4 py-3 font-cormorant text-sm text-white outline-none transition focus:border-white/30"
               />
             </div>
@@ -231,6 +274,8 @@ function BookingForm() {
             <input
               type="text"
               required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full rounded-sm border border-white/10 bg-transparent px-4 py-3 font-cormorant text-sm text-white outline-none transition focus:border-white/30"
             />
           </motion.div>
@@ -244,6 +289,8 @@ function BookingForm() {
               <input
                 type="tel"
                 required
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full rounded-sm border border-white/10 bg-transparent px-4 py-3 font-cormorant text-sm text-white outline-none transition focus:border-white/30"
               />
             </div>
@@ -253,6 +300,8 @@ function BookingForm() {
               </label>
               <input
                 type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full rounded-sm border border-white/10 bg-transparent px-4 py-3 font-cormorant text-sm text-white outline-none transition focus:border-white/30"
               />
             </div>
@@ -265,21 +314,32 @@ function BookingForm() {
             </label>
             <textarea
               rows={3}
+              value={formData.notes}
+              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               className="w-full resize-none rounded-sm border border-white/10 bg-transparent px-4 py-3 font-cormorant text-sm text-white outline-none transition focus:border-white/30"
             />
           </motion.div>
+
+          {/* Error */}
+          {error && (
+            <motion.div custom={7} variants={fadeUp} className="text-red-400 font-cormorant text-sm text-center">
+              {error}
+            </motion.div>
+          )}
 
           {/* Submit */}
           <motion.div custom={7} variants={fadeUp} className="mt-4">
             <button
               type="submit"
+              disabled={submitting}
               className="cta-btn w-full justify-center"
               style={{
                 borderColor: currentFloor.accent,
                 color: currentFloor.accent,
+                opacity: submitting ? 0.5 : 1,
               }}
             >
-              {t.submit}
+              {submitting ? "..." : t.submit}
             </button>
           </motion.div>
         </motion.form>

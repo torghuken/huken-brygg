@@ -1,3 +1,6 @@
 public/video/
 .next/
 node_modules/
+.vercel
+.env.local
+.env*.local

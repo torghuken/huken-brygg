@@ -306,11 +306,12 @@ function BookingForm() {
             <button type="submit" disabled={submitting}
               className="group relative w-full overflow-hidden py-4 font-cormorant text-base sm:text-lg tracking-[0.25em] uppercase transition-all duration-500"
               style={{
-                border: `1px solid rgba(${fl.accentRgb}, ${submitting ? 0.1 : 0.4})`,
+                background: submitting ? "transparent" : `rgba(${fl.accentRgb}, 0.15)`,
+                border: `1px solid rgba(${fl.accentRgb}, ${submitting ? 0.1 : 0.5})`,
                 color: submitting ? `rgba(${fl.accentRgb}, 0.25)` : fl.accent,
               }}>
               <span className="absolute inset-0 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
-                style={{ background: `rgba(${fl.accentRgb}, 0.06)` }} />
+                style={{ background: `rgba(${fl.accentRgb}, 0.12)` }} />
               <span className="relative">{submitting ? "···" : t.submit}</span>
             </button>
           </motion.div>

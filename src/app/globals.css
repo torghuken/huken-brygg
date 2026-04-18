@@ -238,5 +238,14 @@ input[type="time"].bk-inp {
   min-height: 2rem;
 }
 
+/* ── Menu page ── */
+.meny-page {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  background: #110e08;
+  overflow-x: hidden;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 0; }

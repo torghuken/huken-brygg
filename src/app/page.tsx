@@ -100,9 +100,9 @@ export default function Home() {
           </motion.p>
 
           <motion.div custom={3} variants={rise} className="mt-8 flex gap-3">
-            <a href="https://shlkqnemrnvdbdqebdzw.supabase.co/storage/v1/object/public/media/meny-pub.pdf" target="_blank" rel="noopener noreferrer" className="cta" style={{ borderColor: "rgba(200,160,60,0.4)", color: "#c8a04c" }}>
+            <Link href="/meny" className="cta" style={{ borderColor: "rgba(200,160,60,0.4)", color: "#c8a04c" }}>
               {t.gastro.menu}
-            </a>
+            </Link>
             <Link href="/book?floor=gastro" className="cta" style={{ borderColor: "rgba(255,240,210,0.25)", color: "#fff0d2" }}>
               {t.gastro.book}
             </Link>

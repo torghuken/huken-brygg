@@ -45,7 +45,7 @@ export default function Home() {
       {/* ────────── HERO ────────── */}
       <section className="snap-section bg-black">
         <video className="bg-photo" autoPlay muted loop playsInline>
-          <source src="/video/hero.mp4" type="video/mp4" />
+          <source src="https://shlkqnemrnvdbdqebdzw.supabase.co/storage/v1/object/public/media/hero.mp4" type="video/mp4" />
         </video>
         <div className="overlay-hero" />
 

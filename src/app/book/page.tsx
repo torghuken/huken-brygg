@@ -157,12 +157,6 @@ function BookingForm() {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
           className="font-cormorant mt-3 text-lg tracking-wider"
           style={{ color: `rgba(${fl.accentRgb}, 0.5)` }}>{t.successSub}</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-          className="mt-10 flex gap-4">
-          <Link href="/" className="cta" style={{ borderColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.4)" }}>{t.back}</Link>
-          <button onClick={() => { setSubmitted(false); setFormData({ date: "", time: "", name: "", phone: "", email: "" }); }}
-            className="cta" style={{ borderColor: `rgba(${fl.accentRgb}, 0.4)`, color: fl.accent }}>{t.another}</button>
-        </motion.div>
       </motion.div>
     );
   }

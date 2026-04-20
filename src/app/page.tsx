@@ -291,8 +291,17 @@ export default function Home() {
                 {t.footer.address}
               </h3>
               <div className="font-cormorant text-sm text-white/40">
-                <p>Strandgata 1</p>
-                <p>9008 Troms\u00f8</p>
+                <p>Storgata 39</p>
+                <p>9008 Troms&oslash;</p>
+                <a
+                  href="https://maps.google.com/?q=Storgata+39,+9008+Tromsø"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 text-xs tracking-[0.2em] uppercase transition hover:text-white"
+                  style={{ color: "var(--brand)" }}
+                >
+                  Veibeskrivelse &rarr;
+                </a>
               </div>
             </div>
             <div>

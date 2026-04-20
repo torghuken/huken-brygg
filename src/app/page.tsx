@@ -103,17 +103,12 @@ export default function Home() {
           className="section-inner items-center justify-center text-center"
           initial="hidden" animate="show"
         >
-          <motion.img
-            custom={0} variants={rise}
-            src="/logo.png" alt="Huken Brygg"
-            className="w-44 sm:w-56 invert mb-8"
-          />
-          <motion.p custom={1} variants={rise}
+          <motion.p custom={0} variants={rise}
             className="font-cormorant text-base sm:text-lg font-light tracking-[0.3em] text-white/50"
           >
             {t.hero.sub}
           </motion.p>
-          <motion.div custom={2} variants={rise} className="mt-16 float">
+          <motion.div custom={1} variants={rise} className="mt-16 float">
             <span className="font-cormorant text-[0.65rem] tracking-[0.4em] uppercase text-white/25 block mb-2">
               {t.hero.cta}
             </span>
@@ -121,6 +116,22 @@ export default function Home() {
               <path d="M9 2L9 16M3 10L9 16L15 10" />
             </svg>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ────────── LOGO SECTION ────────── */}
+      <section className="snap-section bg-black flex items-center justify-center">
+        <motion.div
+          className="flex flex-col items-center"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <motion.img
+            custom={0} variants={rise}
+            src="/logo.png" alt="Huken Brygg"
+            className="w-48 sm:w-64 invert"
+          />
         </motion.div>
       </section>
 

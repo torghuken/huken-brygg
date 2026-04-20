@@ -206,7 +206,9 @@ export default function Home() {
 
       {/* ────────── THE UNDERGROUND ────────── */}
       <section className="snap-section" style={{ background: "var(--underground-void)" }}>
-        <img className="bg-photo" src="/images/underground.jpg" alt="" />
+        <video className="bg-photo" autoPlay muted loop playsInline>
+          <source src="https://shlkqnemrnvdbdqebdzw.supabase.co/storage/v1/object/public/media/underground.mp4" type="video/mp4" />
+        </video>
         <div className="overlay-underground" />
         <div className="floor-number" style={{ color: "rgba(155,27,48,0.06)" }}>B</div>
 

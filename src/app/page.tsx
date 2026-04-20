@@ -120,20 +120,16 @@ export default function Home() {
       </section>
 
       {/* ────────── LOGO SECTION ────────── */}
-      <section className="snap-section bg-black flex items-center justify-center">
-        <motion.div
-          className="flex flex-col items-center"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <motion.img
-            custom={0} variants={rise}
-            src="/logo.png" alt="Huken Brygg"
-            className="w-48 sm:w-64 invert"
-          />
-        </motion.div>
-      </section>
+      <div className="bg-black flex items-center justify-center py-10 sm:py-14">
+        <motion.img
+          src="/logo.png" alt="Huken Brygg"
+          className="w-40 sm:w-52 invert"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        />
+      </div>
 
       {/* ────────── THE GASTRO BAR ────────── */}
       <section className="snap-section" style={{ background: "var(--gastro-warm)" }}>

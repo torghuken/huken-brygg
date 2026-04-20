@@ -282,9 +282,8 @@ export default function Home() {
                 {t.footer.hours}
               </h3>
               <div className="space-y-1 font-cormorant text-sm text-white/40">
-                <p>Man – Tor: 16:00 – 01:00</p>
-                <p>Fre – L\u00f8r: 16:00 – 03:00</p>
-                <p>S\u00f8n: Stengt</p>
+                <p>S&oslash;n – Tor: 15:00 – 02:00</p>
+                <p>Fre – L&oslash;r: 15:00 – 03:30</p>
               </div>
             </div>
             <div>

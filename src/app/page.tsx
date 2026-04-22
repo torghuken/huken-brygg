@@ -121,11 +121,10 @@ export default function Home() {
 
       {/* ────────── LOGO + KAMPANJE ────────── */}
       <div className="relative bg-black overflow-hidden">
-        {/* Subtle gold line accents top & bottom */}
         <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(200,164,78,0.15) 30%, rgba(200,164,78,0.15) 70%, transparent 100%)" }} />
         <div className="absolute inset-x-0 bottom-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(200,164,78,0.15) 30%, rgba(200,164,78,0.15) 70%, transparent 100%)" }} />
 
-        <div className="flex items-center justify-center py-6 sm:py-8 px-3 sm:px-6">
+        <div className="flex items-center justify-center py-5 sm:py-7 px-3 sm:px-6">
           {/* Left banner */}
           <motion.div
             className="flex-1 flex justify-end"
@@ -136,20 +135,25 @@ export default function Home() {
           >
             <Link
               href="/book?floor=gastro&date=2026-05-17"
-              className="group flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2.5 transition-all duration-400 hover:bg-white/[0.03]"
+              className="group flex flex-col items-end px-4 sm:px-6 py-2 transition-all duration-400 hover:bg-white/[0.03]"
               style={{ borderRight: "1px solid rgba(200,164,78,0.12)" }}
             >
-              <span className="text-base sm:text-lg">🇳🇴</span>
-              <span className="font-cormorant text-[0.7rem] sm:text-sm tracking-[0.12em]" style={{ color: "rgba(200,164,78,0.6)" }}>
-                Book bord til 17. mai
+              <span className="font-lora text-[0.65rem] sm:text-xs tracking-[0.15em] uppercase" style={{ color: "var(--brand)" }}>
+                Book bord
               </span>
-              <span className="font-cormorant text-[0.65rem] text-white/15 group-hover:text-white/40 transition">&rarr;</span>
+              <span className="font-lora text-lg sm:text-2xl font-semibold leading-tight mt-0.5">
+                <span style={{ color: "var(--brand)" }}>17.</span>
+                {" "}
+                <span style={{ color: "#c0392b" }}>M</span>
+                <span style={{ color: "#2980b9" }}>A</span>
+                <span style={{ color: "#c0392b" }}>I</span>
+              </span>
             </Link>
           </motion.div>
 
           {/* Center logo */}
           <motion.div
-            className="flex-shrink-0 px-6 sm:px-10"
+            className="flex-shrink-0 px-5 sm:px-10"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -171,14 +175,19 @@ export default function Home() {
           >
             <Link
               href="/book?floor=gastro&date=2026-05-17"
-              className="group flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2.5 transition-all duration-400 hover:bg-white/[0.03]"
+              className="group flex flex-col items-start px-4 sm:px-6 py-2 transition-all duration-400 hover:bg-white/[0.03]"
               style={{ borderLeft: "1px solid rgba(200,164,78,0.12)" }}
             >
-              <span className="font-cormorant text-[0.65rem] text-white/15 group-hover:text-white/40 transition">&larr;</span>
-              <span className="font-cormorant text-[0.7rem] sm:text-sm tracking-[0.12em]" style={{ color: "rgba(200,164,78,0.6)" }}>
-                Book bord til 17. mai
+              <span className="font-lora text-[0.65rem] sm:text-xs tracking-[0.15em] uppercase" style={{ color: "var(--brand)" }}>
+                Book bord
               </span>
-              <span className="text-base sm:text-lg">🇳🇴</span>
+              <span className="font-lora text-lg sm:text-2xl font-semibold leading-tight mt-0.5">
+                <span style={{ color: "var(--brand)" }}>17.</span>
+                {" "}
+                <span style={{ color: "#c0392b" }}>M</span>
+                <span style={{ color: "#2980b9" }}>A</span>
+                <span style={{ color: "#c0392b" }}>I</span>
+              </span>
             </Link>
           </motion.div>
         </div>

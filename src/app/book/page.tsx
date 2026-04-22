@@ -109,6 +109,8 @@ function BookingForm() {
   useEffect(() => {
     const f = searchParams.get("floor") as FloorId | null;
     if (f && f in floorConfig) setSelectedFloor(f);
+    const d = searchParams.get("date");
+    if (d) setFormData((prev) => ({ ...prev, date: d }));
   }, [searchParams]);
 
   async function handleSubmit(e: React.FormEvent) {

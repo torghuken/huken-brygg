@@ -119,8 +119,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ────────── LOGO SECTION ────────── */}
-      <div className="bg-black flex items-center justify-center py-10 sm:py-14">
+      {/* ────────── LOGO + KAMPANJE ────────── */}
+      <div className="bg-black flex flex-col items-center justify-center py-10 sm:py-14 gap-6">
         <motion.img
           src="/logo.png" alt="Huken Brygg"
           className="w-40 sm:w-52 invert"
@@ -129,6 +129,24 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         />
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <Link
+            href="/book?floor=gastro&date=2026-05-17"
+            className="group flex items-center gap-3 px-6 py-3 rounded-sm transition-all duration-300 hover:bg-white/5"
+            style={{ border: "1px solid rgba(200,164,78,0.3)" }}
+          >
+            <span className="text-lg">🇳🇴</span>
+            <span className="font-cormorant text-sm sm:text-base tracking-wide" style={{ color: "var(--brand)" }}>
+              Husk å book bord til 17. mai!
+            </span>
+            <span className="font-cormorant text-white/30 group-hover:text-white/60 transition">&rarr;</span>
+          </Link>
+        </motion.div>
       </div>
 
       {/* ────────── THE GASTRO BAR ────────── */}

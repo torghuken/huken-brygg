@@ -54,11 +54,27 @@ function formatShortDate(isoStr: string, lang: "no" | "en") {
   });
 }
 
+function getNextThursday(): string {
+  const d = new Date();
+  const day = d.getDay();
+  const daysAhead = day === 4 ? 0 : (4 - day + 7) % 7;
+  d.setDate(d.getDate() + daysAhead);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
+
 export default function Home() {
   const [lang, setLang] = useState<"no" | "en">("no");
   const [nextEvent, setNextEvent] = useState<NextEvent | null>(null);
   const [instaPosts, setInstaPosts] = useState<InstaPost[]>([]);
+  const [nextThursday, setNextThursday] = useState<string>("");
   const t = texts[lang];
+
+  useEffect(() => {
+    setNextThursday(getNextThursday());
+  }, []);
 
   useEffect(() => {
     // Fetch next upcoming event
@@ -134,26 +150,25 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <Link
-              href="/book?floor=gastro&date=2026-05-17"
-              className="group flex flex-col items-end px-4 sm:px-6 py-2 transition-all duration-400 hover:bg-white/[0.03]"
+              href={nextThursday ? `/book?floor=gastro&date=${nextThursday}` : "/book?floor=gastro"}
+              className="group flex flex-col items-end text-right px-4 sm:px-6 py-2 transition-all duration-400 hover:bg-white/[0.03]"
               style={{ borderRight: "1px solid rgba(200,164,78,0.12)" }}
             >
-              <span className="font-lora text-[0.65rem] sm:text-xs tracking-[0.15em] uppercase" style={{ color: "var(--brand)" }}>
-                Book bord
+              <span className="font-lora text-[0.6rem] sm:text-[0.7rem] tracking-[0.18em] uppercase" style={{ color: "var(--brand)" }}>
+                Special offers
               </span>
-              <span className="font-lora text-lg sm:text-2xl font-semibold leading-tight mt-0.5">
-                <span style={{ color: "var(--brand)" }}>17.</span>
-                {" "}
-                <span style={{ color: "#c0392b" }}>M</span>
-                <span style={{ color: "#2980b9" }}>A</span>
-                <span style={{ color: "#c0392b" }}>I</span>
+              <span className="font-lora text-base sm:text-xl font-semibold leading-tight text-white mt-0.5">
+                Every Thursday
+              </span>
+              <span className="font-lora text-[0.6rem] sm:text-[0.7rem] tracking-[0.18em] uppercase mt-0.5" style={{ color: "var(--brand)" }}>
+                Book table
               </span>
             </Link>
           </motion.div>
 
           {/* Center logo */}
           <motion.div
-            className="flex-shrink-0 px-5 sm:px-10"
+            className="flex-shrink-0 px-10 sm:px-20"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -174,19 +189,18 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <Link
-              href="/book?floor=gastro&date=2026-05-17"
-              className="group flex flex-col items-start px-4 sm:px-6 py-2 transition-all duration-400 hover:bg-white/[0.03]"
+              href={nextThursday ? `/book?floor=gastro&date=${nextThursday}` : "/book?floor=gastro"}
+              className="group flex flex-col items-start text-left px-4 sm:px-6 py-2 transition-all duration-400 hover:bg-white/[0.03]"
               style={{ borderLeft: "1px solid rgba(200,164,78,0.12)" }}
             >
-              <span className="font-lora text-[0.65rem] sm:text-xs tracking-[0.15em] uppercase" style={{ color: "var(--brand)" }}>
-                Book bord
+              <span className="font-lora text-[0.6rem] sm:text-[0.7rem] tracking-[0.18em] uppercase" style={{ color: "var(--brand)" }}>
+                Special offers
               </span>
-              <span className="font-lora text-lg sm:text-2xl font-semibold leading-tight mt-0.5">
-                <span style={{ color: "var(--brand)" }}>17.</span>
-                {" "}
-                <span style={{ color: "#c0392b" }}>M</span>
-                <span style={{ color: "#2980b9" }}>A</span>
-                <span style={{ color: "#c0392b" }}>I</span>
+              <span className="font-lora text-base sm:text-xl font-semibold leading-tight text-white mt-0.5">
+                Every Thursday
+              </span>
+              <span className="font-lora text-[0.6rem] sm:text-[0.7rem] tracking-[0.18em] uppercase mt-0.5" style={{ color: "var(--brand)" }}>
+                Book table
               </span>
             </Link>
           </motion.div>

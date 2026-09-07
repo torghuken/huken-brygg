@@ -39,7 +39,7 @@ const faq = {
       name: "How late is the kitchen open at Huken Brygg?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The kitchen is open until 01:30 Sunday to Thursday and until 03:00 on Friday and Saturday. The bar stays open until 02:30 on weeknights and 04:30 on weekends.",
+        text: "The kitchen is open until 01:30 Sunday to Thursday and until 03:00 on Friday and Saturday. The bar stays open until 02:00 on weeknights and 03:30 on weekends.",
       },
     },
     {
@@ -126,7 +126,7 @@ export default function LateNightFoodPage() {
           <div className="flex items-baseline gap-3">
             <dt className="shrink-0 tracking-[0.15em] uppercase text-[0.8rem] text-white/40">Bar closes</dt>
             <span className="flex-1 border-b border-dotted border-white/10 translate-y-[-4px]" />
-            <dd className="shrink-0 text-white/50 tabular-nums">02:30 / 04:30</dd>
+            <dd className="shrink-0 text-white/50 tabular-nums">02:00 / 03:30</dd>
           </div>
         </dl>
 

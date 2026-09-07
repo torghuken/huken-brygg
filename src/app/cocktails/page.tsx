@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Cocktail Bar in Tromsø — The Cocktail Lounge",
   description:
-    "The Cocktail Lounge on the second floor at Huken Brygg, Storgata 39. Classic and house cocktails in the centre of Tromsø, open late every night — until 02:30 on weeknights and 04:30 at weekends.",
+    "The Cocktail Lounge on the second floor at Huken Brygg, Storgata 39. Classic and house cocktails in the centre of Tromsø, open late every night — until 02:00 on weeknights and 03:30 at weekends.",
   alternates: { canonical: "/cocktails" },
   keywords: [
     "cocktails Tromsø",
@@ -54,8 +54,8 @@ export default function CocktailsPage() {
 
         <p className="font-lora text-lg text-white/70 mt-8 leading-relaxed">
           Cocktails in Tromsø usually mean a hotel bar or a queue. The second floor at Huken Brygg is
-          neither: low light, deep seats, and a bar that keeps pouring until 02:30 on weeknights and
-          04:30 on Friday and Saturday.
+          neither: low light, deep seats, and a bar that keeps pouring until 02:00 on weeknights and
+          03:30 on Friday and Saturday.
         </p>
 
         <h2 className="font-cormorant text-3xl font-light tracking-wide text-stone-200 mt-14 mb-2">
@@ -116,7 +116,7 @@ export default function CocktailsPage() {
           <div className="h-px w-full mb-6" style={{ background: "linear-gradient(to right, rgba(201,168,76,0.3), transparent)" }} />
           <p className="font-lora text-base text-white/55 leading-relaxed">
             The Cocktail Lounge ligger i andre etasje på Storgata 39. Klassikerne laget skikkelig,
-            pluss husets egne drinker. Åpent til 02:30 søndag til torsdag og 04:30 fredag og lørdag.
+            pluss husets egne drinker. Åpent til 02:00 søndag til torsdag og 03:30 fredag og lørdag.
           </p>
           <p className="font-lora text-base text-white/55 mt-4 leading-relaxed">
             Studenter og stamgjester med Huken-klistremerke: 99 kr på husets vin og vodkadrinker, 85 kr

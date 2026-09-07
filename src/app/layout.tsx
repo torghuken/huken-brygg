@@ -88,8 +88,8 @@ const jsonLd = {
         "https://www.facebook.com/HukenBrygg",
       ],
       openingHoursSpecification: [
-        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "14:00", closes: "02:30" },
-        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday", "Saturday"], opens: "14:00", closes: "04:30" },
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "15:00", closes: "02:00" },
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday", "Saturday"], opens: "15:00", closes: "03:30" },
       ],
       amenityFeature: [
         { "@type": "LocationFeatureSpecification", name: "Kitchen open late", value: true },

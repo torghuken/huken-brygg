@@ -65,21 +65,12 @@ function getNextThursday(): string {
   return `${yyyy}-${mm}-${dd}`;
 }
 
-function getOpeningTime(): string {
-  const d = new Date();
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  // Winter hours: 2 Oct – 31 Mar opens 12:00. Summer: 1 Apr – 1 Oct opens 14:00.
-  const winter = m >= 11 || m <= 3 || (m === 10 && day >= 2);
-  return winter ? "12:00" : "14:00";
-}
 
 export default function Home() {
   const [lang, setLang] = useState<"no" | "en">("no");
   const [nextEvent, setNextEvent] = useState<NextEvent | null>(null);
   const [instaPosts, setInstaPosts] = useState<InstaPost[]>([]);
   const [nextThursday, setNextThursday] = useState<string>("");
-  const [openTime] = useState<string>(() => getOpeningTime());
   const t = texts[lang];
 
   useEffect(() => {
@@ -371,8 +362,8 @@ export default function Home() {
                 {t.footer.hours}
               </h3>
               <div className="space-y-1 font-cormorant text-sm text-white/40">
-                <p>S&oslash;n &ndash; Tor: {openTime} &ndash; 02:30</p>
-                <p>Fre &ndash; L&oslash;r: {openTime} &ndash; 04:30</p>
+                <p>S&oslash;n &ndash; Tor: 15:00 &ndash; 02:00</p>
+                <p>Fre &ndash; L&oslash;r: 15:00 &ndash; 03:30</p>
                 <p className="pt-2 text-white/30">
                   {lang === "no"
                     ? "Kj\u00f8kken: til 01:30 (s\u00f8n\u2013tor) / 03:00 (fre\u2013l\u00f8r)"

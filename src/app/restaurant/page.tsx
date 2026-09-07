@@ -122,7 +122,7 @@ export default function RestaurantPage() {
           <div className="flex items-baseline gap-3">
             <dt className="shrink-0 tracking-[0.15em] uppercase text-[0.8rem] text-white/40">Bar closes</dt>
             <span className="flex-1 border-b border-dotted border-white/10 translate-y-[-4px]" />
-            <dd className="shrink-0 text-white/60 tabular-nums">02:30 / 04:30</dd>
+            <dd className="shrink-0 text-white/60 tabular-nums">02:00 / 03:30</dd>
           </div>
           <div className="flex items-baseline gap-3">
             <dt className="shrink-0 tracking-[0.15em] uppercase text-[0.8rem] text-white/40">Age limit</dt>

@@ -85,7 +85,7 @@ export default function MenyPage() {
           </h1>
           <div className="mt-3 mx-auto h-px w-16 bg-amber-400/30" />
           <p className="font-cormorant text-sm tracking-[0.15em] text-white/35 mt-4">
-            Kitchen open every night 15:00 – 02:00
+            Kitchen open until 01:30 Sun–Thu · 03:00 Fri–Sat
           </p>
         </motion.div>
 

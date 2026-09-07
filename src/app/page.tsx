@@ -65,11 +65,21 @@ function getNextThursday(): string {
   return `${yyyy}-${mm}-${dd}`;
 }
 
+function getOpeningTime(): string {
+  const d = new Date();
+  const m = d.getMonth() + 1;
+  const day = d.getDate();
+  // Winter hours: 2 Oct – 31 Mar opens 12:00. Summer: 1 Apr – 1 Oct opens 14:00.
+  const winter = m >= 11 || m <= 3 || (m === 10 && day >= 2);
+  return winter ? "12:00" : "14:00";
+}
+
 export default function Home() {
   const [lang, setLang] = useState<"no" | "en">("no");
   const [nextEvent, setNextEvent] = useState<NextEvent | null>(null);
   const [instaPosts, setInstaPosts] = useState<InstaPost[]>([]);
   const [nextThursday, setNextThursday] = useState<string>("");
+  const [openTime] = useState<string>(() => getOpeningTime());
   const t = texts[lang];
 
   useEffect(() => {
@@ -348,7 +358,10 @@ export default function Home() {
       </section>
 
       {/* ────────── FOOTER ────────── */}
-      <footer className="snap-section flex flex-col justify-between bg-black px-6 py-12 sm:px-12">
+      <footer
+        className="snap-section flex flex-col justify-between bg-black px-6 py-12 sm:px-12"
+        style={{ height: "auto", minHeight: "100dvh", overflow: "visible" }}
+      >
         <div className="flex flex-col gap-12">
           <img src="/logo.png" alt="Huken Brygg" className="w-20 invert" />
 
@@ -358,8 +371,13 @@ export default function Home() {
                 {t.footer.hours}
               </h3>
               <div className="space-y-1 font-cormorant text-sm text-white/40">
-                <p>S&oslash;n – Tor: 15:00 – 02:00</p>
-                <p>Fre – L&oslash;r: 15:00 – 03:30</p>
+                <p>S&oslash;n &ndash; Tor: {openTime} &ndash; 02:30</p>
+                <p>Fre &ndash; L&oslash;r: {openTime} &ndash; 04:30</p>
+                <p className="pt-2 text-white/30">
+                  {lang === "no"
+                    ? "Kj\u00f8kken: til 01:30 (s\u00f8n\u2013tor) / 03:00 (fre\u2013l\u00f8r)"
+                    : "Kitchen: until 01:30 (Sun\u2013Thu) / 03:00 (Fri\u2013Sat)"}
+                </p>
               </div>
             </div>
             <div>
@@ -427,6 +445,24 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <nav className="mt-10 border-t border-white/5 pt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-cormorant text-xs tracking-[0.2em] uppercase text-white/25">
+          <Link href="/restaurant" className="transition hover:text-white/60">
+            {lang === "no" ? "Restaurant i Troms\u00f8" : "Restaurant in Troms\u00f8"}
+          </Link>
+          <Link href="/late-night-food" className="transition hover:text-white/60">
+            {lang === "no" ? "Nattmat" : "Late night food"}
+          </Link>
+          <Link href="/cocktails" className="transition hover:text-white/60">
+            {lang === "no" ? "Cocktailbar" : "Cocktails"}
+          </Link>
+          <Link href="/meny" className="transition hover:text-white/60">
+            {lang === "no" ? "Meny" : "Menu"}
+          </Link>
+          <Link href="/events" className="transition hover:text-white/60">
+            Events
+          </Link>
+        </nav>
 
         <div className="mt-12 border-t border-white/5 pt-6 text-center">
           <p className="font-cormorant text-[0.6rem] text-white/15 tracking-[0.3em]">

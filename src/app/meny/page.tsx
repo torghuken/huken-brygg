@@ -85,7 +85,12 @@ export default function MenyPage() {
           </h1>
           <div className="mt-3 mx-auto h-px w-16 bg-amber-400/30" />
           <p className="font-cormorant text-sm tracking-[0.15em] text-white/35 mt-4">
-            Kitchen open until 01:30 Sun–Thu · 03:00 Fri–Sat
+            <Link
+              href="/late-night-food"
+              className="underline decoration-amber-400/25 underline-offset-4 transition hover:text-white/70 hover:decoration-amber-400/60"
+            >
+              Kitchen open until 01:30 Sun–Thu · 03:00 Fri–Sat
+            </Link>
           </p>
         </motion.div>
 

@@ -453,7 +453,28 @@ export default function Home() {
           <Link href="/events" className="transition hover:text-white/60">
             Events
           </Link>
+          <a
+            href="https://www.skinsnightclub.no"
+            className="transition hover:text-white/60"
+          >
+            {lang === "no" ? "SKINS Nightclub" : "SKINS Nightclub"}
+          </a>
         </nav>
+
+        <p className="mt-6 text-center font-cormorant text-xs leading-relaxed text-white/25">
+          {lang === "no"
+            ? "N\u00e5r vi stenger, \u00e5pner "
+            : "When we close, "}
+          <a
+            href="https://www.skinsnightclub.no"
+            className="text-[#c8a04c]/70 transition hover:text-[#c8a04c]"
+          >
+            SKINS Nightclub
+          </a>
+          {lang === "no"
+            ? " i Storgata 30 \u2014 nattklubb, fredag og l\u00f8rdag til 03:30."
+            : " opens at Storgata 30 \u2014 nightclub, Friday and Saturday until 03:30."}
+        </p>
 
         <div className="mt-12 border-t border-white/5 pt-6 text-center">
           <p className="font-cormorant text-[0.6rem] text-white/15 tracking-[0.3em]">

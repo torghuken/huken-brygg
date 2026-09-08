@@ -81,9 +81,12 @@ export default function CocktailsPage() {
         <div className="h-px w-full mb-6" style={{ background: "linear-gradient(to right, rgba(201,168,76,0.3), transparent)" }} />
 
         <p className="font-lora text-base text-white/55 leading-relaxed">
-          Students, regulars and local businesses with a Huken sticker pay 99 kr for house wine and
-          vodka drinks, and 85 kr for a draft beer. On Thursdays the whole house runs on the Thursday
-          list: 65 kr draft beer, a bottle of prosecco at 200 kr, and a burger at 199 kr.
+          Students, regulars and local businesses can pick up a Huken sticker at the bar. It gets you
+          our regulars&apos; rates every day of the week. Thursdays the whole house runs on the
+          Thursday list, food included &mdash; the burger is 199 kr.
+        </p>
+        <p className="font-lora text-base text-white/55 mt-5 leading-relaxed">
+          Ask at the bar for the current list.
         </p>
 
         <h2 className="font-cormorant text-3xl font-light tracking-wide text-stone-200 mt-14 mb-2">
@@ -119,8 +122,9 @@ export default function CocktailsPage() {
             pluss husets egne drinker. Åpent til 02:00 søndag til torsdag og 03:30 fredag og lørdag.
           </p>
           <p className="font-lora text-base text-white/55 mt-4 leading-relaxed">
-            Studenter og stamgjester med Huken-klistremerke: 99 kr på husets vin og vodkadrinker, 85 kr
-            på fatøl. Torsdager gjelder torsdagsprisene i hele huset. Aldersgrense 20 år.
+            Studenter og stamgjester kan hente Huken-klistremerke i baren &mdash; det gir
+            stamgjestpris alle dager. Torsdager gjelder torsdagsprisene i hele huset, også på maten:
+            burger 199 kr. Spør i baren om gjeldende priser. Aldersgrense 20 år.
           </p>
         </section>
       </article>

@@ -26,14 +26,14 @@ const texts = {
     gastro: { floor: "1. etasje", title: "The Gastro Bar", sub: "Where fire meets flavor.", menu: "Se meny", book: "Book bord" },
     lounge: { floor: "2. etasje", title: "The Cocktail Lounge", sub: "Sip slow. Stay late.", book: "Book bord" },
     underground: { floor: "Kjelleren", title: "The Underground", sub: "You weren't supposed to find this place.", events: "Kommende events", book: "Book bord", next: "Neste event" },
-    footer: { hours: "\u00c5pningstider", address: "Adresse", follow: "F\u00f8lg oss" },
+    footer: { hours: "\u00c5pningstider", address: "Adresse", follow: "F\u00f8lg oss", call: "Ring oss", booking: "Bordbestilling og henvendelser" },
   },
   en: {
     hero: { sub: "Three floors. Three worlds.", cta: "Choose your night" },
     gastro: { floor: "1st floor", title: "The Gastro Bar", sub: "Where fire meets flavor.", menu: "See menu", book: "Book a table" },
     lounge: { floor: "2nd floor", title: "The Cocktail Lounge", sub: "Sip slow. Stay late.", book: "Book a table" },
     underground: { floor: "Basement", title: "The Underground", sub: "You weren't supposed to find this place.", events: "Upcoming events", book: "Book a table", next: "Next event" },
-    footer: { hours: "Opening hours", address: "Address", follow: "Follow us" },
+    footer: { hours: "Opening hours", address: "Address", follow: "Follow us", call: "Call us", booking: "Table bookings and enquiries" },
   },
 };
 
@@ -387,6 +387,16 @@ export default function Home() {
                 >
                   Veibeskrivelse &rarr;
                 </a>
+                <p className="mt-4 text-[0.6rem] tracking-[0.4em] uppercase" style={{ color: "var(--brand)" }}>
+                  {t.footer.call}
+                </p>
+                <a
+                  href="tel:+4790474347"
+                  className="mt-1 block font-cormorant text-base text-white/60 transition hover:text-white"
+                >
+                  90 47 43 47
+                </a>
+                <p className="mt-1 font-cormorant text-xs text-white/25">{t.footer.booking}</p>
               </div>
             </div>
             <div>

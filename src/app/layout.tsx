@@ -84,6 +84,7 @@ const jsonLd = {
         addressRegion: "Troms",
         addressCountry: "NO",
       },
+      telephone: "+47 90 47 43 47",
       geo: { "@type": "GeoCoordinates", latitude: 69.6497, longitude: 18.9553 },
       areaServed: { "@type": "City", name: "Tromsø" },
       sameAs: [
